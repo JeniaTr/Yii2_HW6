@@ -32,10 +32,10 @@ $this->title = 'My Yii Application';
                 </center>
 
 
-                <p><a class="btn btn-default" href="http://www.yiiframework.com/doc/"><?= Yii::t('app', 'NAV_SIGNUP') ?>&raquo;</a></p>
+                <p class="text-center"><a class="btn btn-default" href="http://www.yiiframework.com/doc/"><?= Yii::t('app', 'NAV_SIGNUP') ?>&raquo;</a></p>
             </div>
 
-            <div class="col-lg-6"></div>
+            <div class="col-lg-3"></div>
 
         </div>
 

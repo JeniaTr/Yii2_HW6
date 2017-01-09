@@ -12,6 +12,8 @@ return [
 'BUTTON_DELETE' => 'Delete',
 
     'foo' =>'foo',
+    'Sign'=>'SignUp',
+    'Incorrect username or password.'=>'Incorrect username or password.',
 
 'HELLO {username}' => 'Hello, {username}!',
 'FOLLOW_TO_RESET_PASSWORD' => 'Follow the link below to reset your password:',

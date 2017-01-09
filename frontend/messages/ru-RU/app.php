@@ -13,6 +13,8 @@ return [
 'BUTTON_DELETE' => 'Удалить',
 
     'foo' =>'фуу',
+    'Sign'=>'Регистрация',
+    'Incorrect username or password.'=>'Неверное имя или пароль.',
 
 'HELLO {username}' => 'Здравствуйте, {username}!',
 'FOLLOW_TO_RESET_PASSWORD' => 'Для смены пароля пройдите по ссылке:',
