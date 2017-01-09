@@ -1,0 +1,15 @@
+.centered {
+    padding: 0px; /* Поля вокруг текста */
+    margin: auto; /* Выравниваем по центру */
+}
+
+.blockcube {
+    display: block;
+    height: 500px;
+    width: auto;
+    margin: auto;
+    background: rgba(0,0,0,0.1);
+}
+
+.heig {
+}

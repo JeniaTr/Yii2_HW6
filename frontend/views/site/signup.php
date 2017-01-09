@@ -7,7 +7,7 @@
 use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
 
-$this->title = 'Signup';
+$this->title = Yii::t('app','NAV_SIGNUP');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="site-signup">
@@ -21,9 +21,18 @@ $this->params['breadcrumbs'][] = $this->title;
 
                 <?= $form->field($model, 'username')->textInput(['autofocus' => true]) ?>
 
+                <?= $form->field($model, 'first_name') ?>
+
+                <?= $form->field($model, 'last_name') ?>
+
                 <?= $form->field($model, 'email') ?>
 
                 <?= $form->field($model, 'password')->passwordInput() ?>
+
+                <?= $form->field($model, 'passwordR')->passwordInput() ?>
+
+<!--                --><?//= $form->field($model, '$password_reset_token')->passwordInput() ?>
+
 
                 <div class="form-group">
                     <?= Html::submitButton('Signup', ['class' => 'btn btn-primary', 'name' => 'signup-button']) ?>

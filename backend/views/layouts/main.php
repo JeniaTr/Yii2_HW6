@@ -57,6 +57,14 @@ AppAsset::register($this);
     ?>
 
     <div class="container">
+
+        <?php
+        use backend\widgets\WLang;
+        ?>
+        ...
+        <?= WLang::widget();?>
+
+
         <?= Breadcrumbs::widget([
             'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
         ]) ?>

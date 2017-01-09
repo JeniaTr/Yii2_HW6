@@ -37,12 +37,37 @@ return [
         'errorHandler' => [
             'errorAction' => 'site/error',
         ],
+
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
-            'rules' => [
+            'class'=>'backend\components\LangUrlManager',
+            'rules'=>[
+                '/' => 'site/index',
+                '<controller:\w+>/<action:\w+>/*'=>'<controller>/<action>',
+            ]
+        ],
+
+        'request' => [
+            'class' => 'backend\components\LangRequest'
+        ],
+
+        'language'=>'ru-RU',
+        'i18n' => [
+            'translations' => [
+                '*' => [
+                    'class' => 'yii\i18n\PhpMessageSource',
+                    'basePath' => '@backend/messages',
+                    'sourceLanguage' => 'en',
+                    'fileMap' => [
+                        //'main' => 'main.php',
+                    ],
+                ],
             ],
         ],
+
+
+
     ],
     'params' => $params,
 ];
