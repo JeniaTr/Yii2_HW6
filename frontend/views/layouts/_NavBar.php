@@ -22,9 +22,23 @@ NavBar::begin([
             ['label' => 'About', 'url' => ['/site/about']],
             ['label' => 'Contact', 'url' => ['/site/contact']],
             ['label' => 'Rules', 'url' => ['/rules/']],
+            ['label' => 'Rbactest', 'url' => ['/rbactest/']],
 
         ];
     }
+
+    if ($b =='rbactest') {
+    $menuItems = [
+        ['label' => 'about', 'url' => ['/rbactest/about']],
+        ['label' => 'create', 'url' => ['/rbactest/create']],
+        ['label' => 'index', 'url' => ['/rbactest/index']],
+//        ['label' => 'view', 'url' => ['/rbactest/view']],
+//        ['label' => '_search', 'url' => ['/rbactest/_search']],
+//        ['label' => '_form', 'url' => ['/rbactest/_form']],
+
+    ];
+}
+
 
     if ($b=="rules") {
         $menuItems = [

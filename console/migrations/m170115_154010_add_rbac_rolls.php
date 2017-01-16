@@ -25,6 +25,7 @@ class m170115_154010_add_rbac_rolls extends Migration
         $createPost->description='Create post';
         $auth->add($createPost);
 
+        $auth->addChild($admin, $user);
 
     }
 

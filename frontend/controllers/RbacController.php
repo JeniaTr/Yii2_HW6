@@ -27,8 +27,18 @@ class RbacController extends Controller
 
     public function actionRem()
     {
-        $auth = Yii::$app->authManager;
+        $auth = \Yii::$app->authManager;
         $auth->removeAll();
+
+    }
+
+
+    public function actionAddadmin()
+    {
+        $auth = Yii::$app->authManager;
+        $admins= $auth->getRole(User::ROLE_ADMIN);
+        $creatPost=$auth->getPermission(User::PERMISION_CREATE_POST);
+        $auth->addChild($admins, $creatPost);
 
     }
 
