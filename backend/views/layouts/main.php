@@ -60,9 +60,10 @@ AppAsset::register($this);
 
         <?php
         use backend\widgets\WLang;
+
         ?>
         ...
-        <?= WLang::widget();?>
+        <?= WLang::widget(); ?>
 
 
         <?= Breadcrumbs::widget([

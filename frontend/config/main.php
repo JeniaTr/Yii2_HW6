@@ -40,10 +40,10 @@ return [
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
-            'class'=>'frontend\components\LangUrlManager',
-            'rules'=>[
+            'class' => 'frontend\components\LangUrlManager',
+            'rules' => [
                 '/' => 'site/index',
-                '<controller:\w+>/<action:\w+>/*'=>'<controller>/<action>',
+                '<controller:\w+>/<action:\w+>/*' => '<controller>/<action>',
             ]
         ],
 
@@ -51,7 +51,7 @@ return [
             'class' => 'frontend\components\LangRequest'
         ],
 
-        'language'=>'ru-RU',
+        'language' => 'ru-RU',
         'i18n' => [
             'translations' => [
                 '*' => [
@@ -65,7 +65,9 @@ return [
             ],
         ],
 
-
+        'authManager' => [
+            'class' => 'yii\rbac\DbManager',
+        ],
 
     ],
     'params' => $params,

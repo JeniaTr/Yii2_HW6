@@ -14,20 +14,24 @@ class RulesController extends Controller
             'access' => [
                 'class' => AccessControl::className(),
                 'denyCallback' => function ($rule, $action) {
-                    throw new \Exception('У вас нет доступа к этой странице');},
+                    throw new \Exception('У вас нет доступа к этой странице');
+                },
                 'only' => ['about', 'logged', 'unlogged'],
                 'rules' => [
                     [
                         'actions' => ['about'],
                         'allow' => true,
                         'matchCallback' => function ($rule, $action) {
-                        return date('d-m') === '09-01';}
+                            return date('d-m') === '09-01';
+                        }
                     ],
                     [
                         'actions' => ['logged'],
                         'allow' => true,
                         'roles' => ['@'],
-                        'denyCallback' => function ($rule, $action) { return $this->goBack(); },
+                        'denyCallback' => function ($rule, $action) {
+                            return $this->goBack();
+                        },
                     ],
                     [
                         'actions' => ['unlogged'],
