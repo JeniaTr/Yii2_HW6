@@ -41,10 +41,10 @@ return [
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
-            'class'=>'backend\components\LangUrlManager',
-            'rules'=>[
+            'class' => 'backend\components\LangUrlManager',
+            'rules' => [
                 '/' => 'site/index',
-                '<controller:\w+>/<action:\w+>/*'=>'<controller>/<action>',
+                '<controller:\w+>/<action:\w+>/*' => '<controller>/<action>',
             ]
         ],
 
@@ -52,7 +52,7 @@ return [
             'class' => 'backend\components\LangRequest'
         ],
 
-        'language'=>'ru-RU',
+        'language' => 'ru-RU',
         'i18n' => [
             'translations' => [
                 '*' => [

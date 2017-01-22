@@ -21,10 +21,10 @@ class LangRequest extends Request
 
             \app\models\Lang::setCurrent($lang_url);
 
-            if( $lang_url !== null && $lang_url === \app\models\Lang::getCurrent()->url &&
-                strpos($this->_lang_url, \app\models\Lang::getCurrent()->url) === 1 )
-            {
-                $this->_lang_url = substr($this->_lang_url, strlen(\app\models\Lang::getCurrent()->url)+1);
+            if ($lang_url !== null && $lang_url === \app\models\Lang::getCurrent()->url &&
+                strpos($this->_lang_url, \app\models\Lang::getCurrent()->url) === 1
+            ) {
+                $this->_lang_url = substr($this->_lang_url, strlen(\app\models\Lang::getCurrent()->url) + 1);
             }
         }
 
@@ -73,6 +73,6 @@ class LangRequest extends Request
             $pathInfo = substr($pathInfo, 1);
         }
 
-        return (string) $pathInfo;
+        return (string)$pathInfo;
     }
 }

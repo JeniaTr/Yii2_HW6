@@ -26,7 +26,8 @@ class RbactestController extends Controller
             'access' => [
                 'class' => AccessControl::className(),
                 'denyCallback' => function ($rule, $action) {
-                    throw new \Exception('У вас нет доступа к этой странице');},
+                    throw new \Exception('У вас нет доступа к этой странице');
+                },
                 'rules' => [
                     [
                         'actions' => ['create'],

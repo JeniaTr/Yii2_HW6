@@ -32,11 +32,11 @@ class SignupForm extends Model
             ['username', 'string', 'min' => 4, 'max' => 15],
 
             ['first_name', 'required'],
-            ['first_name','string', 'min' => 4, 'max' => 50],
+            ['first_name', 'string', 'min' => 4, 'max' => 50],
 
 
             ['last_name', 'required'],
-            ['last_name','string', 'min' => 4, 'max' => 50],
+            ['last_name', 'string', 'min' => 4, 'max' => 50],
 
 
             ['email', 'trim'],
@@ -45,8 +45,8 @@ class SignupForm extends Model
             ['email', 'string', 'max' => 255],
             ['email', 'unique', 'targetClass' => '\common\models\User', 'message' => 'This email address has already been taken.'],
 
-            [['password','passwordR'], 'required', 'on' => 'create'],
-            [['password','passwordR'], 'string', 'min' => 6],
+            [['password', 'passwordR'], 'required', 'on' => 'create'],
+            [['password', 'passwordR'], 'string', 'min' => 6],
 
             ['passwordR', 'compare', 'compareAttribute' => 'password'],
         ];
@@ -62,15 +62,15 @@ class SignupForm extends Model
         if (!$this->validate()) {
             return null;
         }
-        
+
         $user = new User();
         $user->username = $this->username;
-        $user-> first_name= $this->first_name;
-        $user-> last_name = $this->last_name;
+        $user->first_name = $this->first_name;
+        $user->last_name = $this->last_name;
         $user->email = $this->email;
         $user->setPassword($this->password);
         $user->generateAuthKey();
-        $user->save(false   );
+        $user->save(false);
 
         $auth = Yii::$app->authManager;
         $authorRole = $auth->getRole(User::ROLE_USER);

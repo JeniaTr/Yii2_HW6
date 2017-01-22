@@ -12,6 +12,7 @@ namespace frontend\controllers;
 use yii\web\Controller;
 use yii;
 use common\models\User;
+
 //use yii\filters\AccessControl;
 
 
@@ -36,13 +37,13 @@ class RbacController extends Controller
     public function actionAddadmin()
     {
         $auth = Yii::$app->authManager;
-        $admins= $auth->getRole(User::ROLE_ADMIN);
-        $creatPost=$auth->getPermission(User::PERMISION_CREATE_POST);
+        $admins = $auth->getRole(User::ROLE_ADMIN);
+        $creatPost = $auth->getPermission(User::PERMISION_CREATE_POST);
         $auth->addChild($admins, $creatPost);
 
     }
 
-            public function actionInit()
+    public function actionInit()
     {
         $auth = Yii::$app->authManager;
         $auth->removeAll();

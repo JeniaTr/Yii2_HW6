@@ -9,8 +9,8 @@ class m170116_224104_create_newRollCild extends Migration
     {
         $auth = Yii::$app->authManager;
 
-        $admins= $auth->getRole(User::ROLE_ADMIN);
-        $creatPost=$auth->getPermission(User::PERMISION_CREATE_POST);
+        $admins = $auth->getRole(User::ROLE_ADMIN);
+        $creatPost = $auth->getPermission(User::PERMISION_CREATE_POST);
 
         $auth->addChild($admins, $creatPost);
 
@@ -20,8 +20,8 @@ class m170116_224104_create_newRollCild extends Migration
     {
         $auth = Yii::$app->authManager;
 
-        $admins= $auth->getRole(User::ROLE_ADMIN);
-        $creatPost=$auth->getPermission(User::PERMISION_CREATE_POST);
+        $admins = $auth->getRole(User::ROLE_ADMIN);
+        $creatPost = $auth->getPermission(User::PERMISION_CREATE_POST);
 
         $auth->removeChild($admins, $creatPost);
 

@@ -30,7 +30,7 @@ class User extends ActiveRecord implements IdentityInterface
 
     const ROLE_ADMIN = 'admin';
     const ROLE_USER = 'user';
-    const PERMISION_CREATE_POST= 'user_oun_update';
+    const PERMISION_CREATE_POST = 'user_oun_update';
 
 
     /**
@@ -119,7 +119,7 @@ class User extends ActiveRecord implements IdentityInterface
             return false;
         }
 
-        $timestamp = (int) substr($token, strrpos($token, '_') + 1);
+        $timestamp = (int)substr($token, strrpos($token, '_') + 1);
         $expire = Yii::$app->params['user.passwordResetTokenExpire'];
         return $timestamp + $expire >= time();
     }

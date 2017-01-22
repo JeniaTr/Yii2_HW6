@@ -8,11 +8,11 @@ class LangUrlManager extends UrlManager
 {
     public function createUrl($params)
     {
-        if( isset($params['lang_id']) ){
+        if (isset($params['lang_id'])) {
             //Если указан идентификатор языка, то делаем попытку найти язык в БД,
             //иначе работаем с языком по умолчанию
             $lang = \app\models\Lang::findOne($params['lang_id']);
-            if( $lang === null ){
+            if ($lang === null) {
                 $lang = \app\models\Lang::getDefaultLang();
             }
             unset($params['lang_id']);
@@ -25,10 +25,10 @@ class LangUrlManager extends UrlManager
         $url = parent::createUrl($params);
 
         //Добавляем к URL префикс - буквенный идентификатор языка
-        if( $url == '/' ){
-            return '/'.$lang->url;
-        }else{
-            return '/'.$lang->url.$url;
+        if ($url == '/') {
+            return '/' . $lang->url;
+        } else {
+            return '/' . $lang->url . $url;
         }
     }
 }
