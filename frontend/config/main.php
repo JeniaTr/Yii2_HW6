@@ -15,6 +15,7 @@ return [
         'request' => [
             'csrfParam' => '_csrf-frontend',
         ],
+
         'user' => [
             'identityClass' => 'common\models\User',
             'enableAutoLogin' => true,
@@ -40,10 +41,10 @@ return [
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
-            'class'=>'frontend\components\LangUrlManager',
-            'rules'=>[
+            'class' => 'frontend\components\LangUrlManager',
+            'rules' => [
                 '/' => 'site/index',
-                '<controller:\w+>/<action:\w+>/*'=>'<controller>/<action>',
+                '<controller:\w+>/<action:\w+>/*' => '<controller>/<action>',
             ]
         ],
 
@@ -51,7 +52,7 @@ return [
             'class' => 'frontend\components\LangRequest'
         ],
 
-        'language'=>'ru-RU',
+        'language' => 'ru-RU',
         'i18n' => [
             'translations' => [
                 '*' => [
@@ -65,7 +66,16 @@ return [
             ],
         ],
 
-
+        'authManager' => [
+            'class' => 'yii\rbac\DbManager',
+        ],
+//ServiceLocator
+        'crawler' => [
+            'class'=>'frontend\components\RequestCrawler',
+            'path' => 'files/',
+//            'type' => 'XML'
+            'type' => 'JSON'
+        ],
 
     ],
     'params' => $params,
