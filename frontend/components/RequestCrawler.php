@@ -19,21 +19,19 @@ class RequestCrawler
     public $type;
 
 
-    public function export ()
+    public function export()
     {
         $table = new Tovar();
         $model = new SaveFile();
-
+        $fileName = $table::tableName();
         $data = $table::find()->asArray()->all();
-//        var_dump($data);
-//        exit;
 
         if ('JSON' == $this->type) {
-            $model->save($this->path, $this->type, $this->enJson($data));
+            $model->save($this->path, $this->type, $fileName, $this->enJson($data));
         }
 
         if ('XML' == $this->type) {
-            $model->save($this->path, $this->type, $this->enXml($data));
+            $model->save($this->path, $this->type, $fileName, $this->enXml($data));
         }
 
     }
@@ -44,23 +42,17 @@ class RequestCrawler
 //        $r=$f::findFiles(__DIR__);
 //        var_dump($r);
 //        exit;
-//        $sav= new SaveJsonXml();
 
         return Json::encode($data);
     }
 
     private function enXml($data)
     {
-//        $t= Json::encode($data);
-//        $r = new \SimpleXMLElement($t);
-//        $a = $r->asXML();
 
         $xml = new \SimpleXMLElement('<root/>');
-//        $var=array_flip($data);
         array_walk_recursive($data, function ($value, $key) use ($xml) {
             $xml->addChild($key, $value);
         });
-//        array_walk_recursive($data, array($xml, 'addChild'));
 
         return $xml->asXML();
     }
