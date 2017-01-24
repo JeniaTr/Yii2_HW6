@@ -15,6 +15,7 @@ return [
         'request' => [
             'csrfParam' => '_csrf-frontend',
         ],
+
         'user' => [
             'identityClass' => 'common\models\User',
             'enableAutoLogin' => true,
@@ -67,6 +68,13 @@ return [
 
         'authManager' => [
             'class' => 'yii\rbac\DbManager',
+        ],
+//ServiceLocator
+        'crawler' => [
+            'class'=>'frontend\components\RequestCrawler',
+            'path' => 'files/',
+//            'type' => 'XML'
+            'type' => 'JSON'
         ],
 
     ],

@@ -13,26 +13,15 @@ use Yii;
 use yii\base\Model;
 use common\models\User;
 
-class SaveJsonXml extends Model
+class SaveFile extends Model
 {
     public $fJson;
 
-    public function saveJson($data)
+    public function save($path, $type, $data)
     {
 //  открываем файл, если файл не существует,
 //  делается попытка создать его
-        $fp = fopen("files/"."tovar."."json", "w+");
-//  записываем в файл текст
-        fwrite($fp, $data);
-
-//  закрываем
-        fclose($fp);
-    }
-    public function saveXml($data)
-    {
-//  открываем файл, если файл не существует,
-//  делается попытка создать его
-        $fp = fopen("files/"."tovar.xml", "w+");
+        $fp = fopen($path . "tovar." . $type, "w+");
 //  записываем в файл текст
         fwrite($fp, $data);
 
