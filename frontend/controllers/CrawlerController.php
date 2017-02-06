@@ -20,5 +20,12 @@ class CrawlerController extends Controller
 
     }
 
+    public function actionTest (){
+
+        $requestCrawler = Yii::$container->get('requestCrawler');
+        var_dump($requestCrawler);
+        exit;
+
+    }
 
 }
