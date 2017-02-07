@@ -6,8 +6,8 @@ Yii::setAlias('@console', dirname(dirname(__DIR__)) . '/console');
 
 
 
-Yii::$container->set(\common\components\SerializerInterface::class, ['class' => \common\components\JsonSerializer::class, 'pathToSave' => '/tmp/xmlPath']);
-Yii::$container->set('requestCrawler', [
-    'class' => \common\components\RequestCrawler::class,
-    'pathToSave' => '/file'
-]);
+//Yii::$container->set(\common\components\SerializerInterface::class, ['class' => \common\components\JsonSerializer::class, 'pathToSave' => '/tmp/xmlPath']);
+//Yii::$container->set('requestCrawler', [
+//    'class' => \common\components\RequestCrawler::class,
+//    'pathToSave' => '/file'
+//]);

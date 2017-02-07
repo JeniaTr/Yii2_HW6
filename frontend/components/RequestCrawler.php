@@ -8,6 +8,7 @@
 
 namespace frontend\components;
 
+use Yii;
 use app\models\Tovar;
 use app\models\SaveFile;
 use yii\helpers\Json;
@@ -28,10 +29,13 @@ class RequestCrawler
 
         if ('JSON' == $this->type) {
             $model->save($this->path, $this->type, $fileName, $this->enJson($data));
+            Yii::info('JSON data upload','fff');
+
         }
 
         if ('XML' == $this->type) {
             $model->save($this->path, $this->type, $fileName, $this->enXml($data));
+            Yii::info('xml data upload','fff');
         }
 
     }
