@@ -28,6 +28,10 @@ class User extends ActiveRecord implements IdentityInterface
     const STATUS_DELETED = 0;
     const STATUS_ACTIVE = 10;
 
+
+    const EVENT_NEW_USER = 'new-user';
+
+
     const ROLE_ADMIN = 'admin';
     const ROLE_USER = 'user';
     const PERMISION_CREATE_POST = 'user_oun_update';
@@ -36,6 +40,29 @@ class User extends ActiveRecord implements IdentityInterface
     /**
      * @inheritdoc
      */
+    public function sendMail($event)
+    {
+        echo 'mail sent to admin';
+        // you code
+    }
+
+// one more hanlder.
+
+    public function notification($event)
+    {
+        echo 'notification created';
+    }
+
+    public function init(){
+
+        $this->on(self::EVENT_NEW_USER, [$this, 'sendMail']);
+        $this->on(self::EVENT_NEW_USER, [$this, 'notification']);
+
+        // first parameter is the name of the event and second is the handler.
+        // For handlers I use methods sendMail and notification
+        // from $this class.
+    }
+
     public static function tableName()
     {
         return '{{%user}}';

@@ -20,5 +20,11 @@ class CrawlerController extends Controller
         exit;
 
     }
+   public function actionTest1 (){
+
+       if($model->save()){
+           $model->trigger(User::EVENT_NEW_USER);
+       }
+    }
 
 }

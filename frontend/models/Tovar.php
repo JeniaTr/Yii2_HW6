@@ -12,6 +12,7 @@ use Yii;
  */
 class Tovar extends \yii\db\ActiveRecord
 {
+
     /**
      * @inheritdoc
      */
