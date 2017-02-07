@@ -15,6 +15,7 @@ return [
         'request' => [
             'csrfParam' => '_csrf-frontend',
         ],
+
         'user' => [
             'identityClass' => 'common\models\User',
             'enableAutoLogin' => true,
@@ -25,14 +26,66 @@ return [
             'name' => 'advanced-frontend',
         ],
         'log' => [
+
+            'flushInterval' => 1,   // по умолчанию 1000
             'traceLevel' => YII_DEBUG ? 3 : 0,
+
             'targets' => [
+
+                'file' => [
+                    'class' => 'yii\log\FileTarget',
+                ],
+                'db' => [
+                    'class' => 'yii\log\DbTarget',
+                ],
+
+                ['class' => 'yii\log\FileTarget',
+                    'exportInterval' => 1,
+                    'levels' => ['info'],
+                    'categories' => ['fff'],
+                    'logFile' => '@frontend/runtime/logs/Log11111.log',
+                    'logVars' => ['_GET', '_POST', '_FILES'],
+                ],
+
+                [
+                    'class' => 'yii\log\FileTarget',
+                    'exportInterval' => 1,  // по умолчанию 1000
+                ],
+                [
+                    'class' => 'yii\log\DbTarget',
+                    'levels' => ['error', 'warning'],
+                ],
+
                 [
                     'class' => 'yii\log\FileTarget',
                     'levels' => ['error', 'warning'],
                 ],
+
+                [
+                    'class' => 'yii\log\FileTarget',
+                    'levels' => ['error', 'warning'],
+                    'categories' => [
+                        'yii\db\*',
+                        'yii\web\HttpException:*',
+                    ],
+                    'except' => [
+                        'yii\web\HttpException:404',
+                    ],
+                ],
+
+                [
+                    'class' => 'yii\log\FileTarget',
+                    'prefix' => function ($message) {
+                        $user = Yii::$app->has('user', true) ? Yii::$app->get('user') : null;
+                        $userID = $user ? $user->getId(false) : '-';
+                        return "[$userID]";
+                    }
+                ],
+
             ],
         ],
+
+
         'errorHandler' => [
             'errorAction' => 'site/error',
         ],
@@ -67,6 +120,13 @@ return [
 
         'authManager' => [
             'class' => 'yii\rbac\DbManager',
+        ],
+//ServiceLocator
+        'crawler' => [
+            'class' => 'frontend\components\RequestCrawler',
+            'path' => 'files/',
+//            'type' => 'XML'
+            'type' => 'JSON'
         ],
 
     ],
